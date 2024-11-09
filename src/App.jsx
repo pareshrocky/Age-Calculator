@@ -2,16 +2,17 @@
 import React, { useState } from "react";
 import "./App.css";
 import UserForm from "./components/UserForm";
+import Result from "./components/Result";
 
 export default function App() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [calculatedAge, setCalculatedAge] = useState(null);
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    setCalculatedAge(date);
   };
   return (
     <div className="container">
       <UserForm onDateChange={handleDateChange} />
-      {selectedDate && <p>{selectedDate.toDateString()}</p>}
+      <Result age={calculatedAge}/>
     </div>
   );
 }

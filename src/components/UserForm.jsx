@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import InputField from "./InputField";
 import { validateInput } from "../Utils/Validation";
+import { calculateAge } from "../Utils/CalculateAge";
 
 // eslint-disable-next-line react/prop-types
 export default function UserForm({onDateChange}) {
@@ -61,10 +62,10 @@ export default function UserForm({onDateChange}) {
       month &&
       year
     ) {
-      const inputDate = new Date(year, month - 1, day); // month is 0-indexed
-      onDateChange(inputDate)
+      const ageCalculation = calculateAge(userInputDate); 
+      onDateChange(ageCalculation)
     } else {
-      console.log("invalid date");
+      onDateChange(null)
     }
   }
 
