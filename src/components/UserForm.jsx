@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
+import iconArr from "/icon-arrow.svg"
 
 import InputField from "./InputField";
 import { validateInput } from "../Utils/Validation";
@@ -103,7 +104,7 @@ export default function UserForm({onDateChange}) {
        <div className={styles.separator}>
         <hr/>
        <button className={styles.button} type="submit">
-        <img className={styles.image} src="/icon-arrow.svg"/>
+        <img className={styles.image} src={iconArr}/>
       </button>
        </div>
     </form>
