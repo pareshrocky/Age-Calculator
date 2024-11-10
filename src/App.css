@@ -25,17 +25,24 @@ body {
 }
 
 @media (min-width: 475px) and (max-width: 1000px) {
+  body{
+    align-items: start;
+  }
   .container {
     /* width:70%; */
     max-width: 70vw;
-
+    margin : 35% auto;
   }
 }
 
 @media (max-width: 475px) {
+  body{
+    align-items: start;
+  }
   .container {
     /* width:90%; */
     max-width: 90vw;
+    margin : 16% auto;
   }
 }
 

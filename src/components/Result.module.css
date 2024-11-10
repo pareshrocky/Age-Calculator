@@ -1,0 +1,62 @@
+/* Result.module.css */
+
+.ageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .ageContainer p {
+    margin: 0;
+    font-family: "Poppins", sans-serif !important;
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: italic;
+    opacity: 0; /* Initial opacity for animation */
+    transform: translateY(20px); /* Initial position for slide-in effect */
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  
+  .colored {
+    color: hsl(259, 100%, 65%);
+    font-weight: bold;
+    margin: 5px;
+  }
+  
+  /* Delayed animation for each child */
+  .ageContainer p:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  
+  .ageContainer p:nth-child(2) {
+    animation-delay: 1s;
+  }
+  
+  .ageContainer p:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+  
+  /* Keyframes for slide-in and fade-in effect */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 500px) {
+    .ageContainer p {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  }
+  
+  /* This class triggers the animation for all p elements */
+  .animate p {
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  

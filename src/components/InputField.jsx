@@ -1,15 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable-next-line no-unused-vars*/
 import React from "react";
-import styles from "./InputField.module.css"
-export default function InputField({ label, text,invalid, ...props }) {
-
-const showInvalid = (invalid[text] || invalid["day"] === 'Must be a valid date')
-  
-  console.log(invalid);
- 
-  
-  
+import styles from "./InputField.module.css";
+export default function InputField({ label, text, invalid, ...props }) {
+  const showInvalid =
+    invalid[text] || invalid["day"] === "Must be a valid date";
   return (
     <div className={styles.formGrpStyles}>
       <label
