@@ -103,7 +103,7 @@ export default function UserForm({onDateChange}) {
        <div className={styles.separator}>
         <hr/>
        <button className={styles.button} type="submit">
-        <img className={styles.image} src="./src/assets/images/icon-arrow.svg"/>
+        <img className={styles.image} src="/icon-arrow.svg"/>
       </button>
        </div>
     </form>
