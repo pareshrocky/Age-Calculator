@@ -5,6 +5,8 @@ import InputField from "./InputField";
 import { validateInput } from "../Utils/Validation";
 import { calculateAge } from "../Utils/CalculateAge";
 
+import styles from "./UserForm.module.css"
+
 // eslint-disable-next-line react/prop-types
 export default function UserForm({onDateChange}) {
   const [userInputDate, setUserInputDate] = useState({
@@ -70,38 +72,40 @@ export default function UserForm({onDateChange}) {
   }
 
   return (
-    <form className="formStyle" onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}>
+      <div className={styles.inputFields}>
       <InputField
         label="DAY"
         text="day"
         value={userInputDate.day}
         placeholder="DD"
         onChange={handleChange}
+        invalid={invalidInputDate}
       />
-      {invalidInputDate.day && (
-        <p style={{ color: "red" }}>{invalidInputDate.day}</p>
-      )}
       <InputField
         label="MONTH"
         text="month"
         value={userInputDate.month}
         placeholder="MM"
         onChange={handleChange}
+        invalid={invalidInputDate}
       />
-      {invalidInputDate.month && (
-        <p style={{ color: "red" }}>{invalidInputDate.month}</p>
-      )}
+     
       <InputField
         label="YEAR"
         text="year"
         value={userInputDate.year}
         placeholder="YYYY"
         onChange={handleChange}
+        invalid={invalidInputDate}
       />
-      {invalidInputDate.year && (
-        <p style={{ color: "red" }}>{invalidInputDate.year}</p>
-      )}
-      <button type="submit">done</button>
+       </div>
+       <div className={styles.separator}>
+        <hr/>
+       <button className={styles.button} type="submit">
+        <img className={styles.image} src="src/assets/images/icon-arrow.svg"/>
+      </button>
+       </div>
     </form>
   );
 }

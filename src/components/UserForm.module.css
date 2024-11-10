@@ -1,0 +1,102 @@
+.inputFields {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    gap:6%;
+}
+
+
+.button {
+    width: 3vw;
+    height: 3vw;
+    padding: 5%;
+    border-radius: 50%;
+    background-color: hsl(259, 100%, 65%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: hsl(0, 0%, 8%);
+}
+
+.separator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.separator hr {
+    border: none;
+    border-top: 2px solid hsl(0, 0%, 86%);
+    width: 100%;
+    margin: 0;
+}
+
+.image {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    .button {
+        width: 4vw;
+        height: 4vw;
+        padding: 6%;
+    }
+    /* .separator {
+        position: relative;
+    } */
+
+    .image {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .inputFields {
+       width:100%;
+       margin: 0 auto;
+       gap : 4%; 
+    }
+
+    .separator {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .button {
+        width: 4vw;
+        height: 4vw;
+        padding: 6%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .image {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .image {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}

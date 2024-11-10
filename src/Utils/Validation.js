@@ -5,9 +5,9 @@ export const validateInput = (name, value, formValues) => {
   switch (name) {
     case "day":
       if (!value) {
-        errorMsg = "Day is required";
+        errorMsg = "This field is required";
       } else if (value < 1 || value > 31) {
-        errorMsg = "Day must be between 1 and 31";
+        errorMsg = "Must be a valid day";
       } else {
         const month = parseInt(formValues.month, 10);
         if (
@@ -15,22 +15,22 @@ export const validateInput = (name, value, formValues) => {
           (month === 2 && !isLeapYear(formValues.year) && value > 28) ||
           ([4, 6, 9, 11].includes(month) && value > 30)
         ) {
-          errorMsg = "Invalid day for the selected month";
+          errorMsg = "Must be a valid date";
         }
       }
       break;
     case "month":
       if (!value) {
-        errorMsg = "Month is required";
+        errorMsg = "This field is required";
       } else if (value < 1 || value > 12) {
-        errorMsg = "Month must be between 1 and 12";
+        errorMsg = "Must be a valid month";
       }
       break;
     case "year":
       if (!value) {
-        errorMsg = "Year is required";
+        errorMsg = "This field is required";
       } else if (value > currentYear) {
-        errorMsg = `Year must be less than or equal to ${currentYear}`;
+        errorMsg = "Must be in the past";
       }
       break;
     default:
