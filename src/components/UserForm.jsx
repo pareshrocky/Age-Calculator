@@ -1,15 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import iconArr from "/icon-arrow.svg"
+import iconArr from "/icon-arrow.svg";
 
 import InputField from "./InputField";
 import { validateInput } from "../Utils/Validation";
 import { calculateAge } from "../Utils/CalculateAge";
 
-import styles from "./UserForm.module.css"
+import styles from "./UserForm.module.css";
 
 // eslint-disable-next-line react/prop-types
-export default function UserForm({onDateChange}) {
+export default function UserForm({ onDateChange }) {
   const [userInputDate, setUserInputDate] = useState({
     day: "",
     month: "",
@@ -27,6 +27,7 @@ export default function UserForm({onDateChange}) {
     setUserInputDate((prevValues) => {
       const updatedValues = { ...prevValues, [name]: value }; // Validate all fields that have values
       const newErrors = {};
+      //Loop is used to revalidate again all fields for validating whether a date is valid or not.
       for (const [key, val] of Object.entries(updatedValues)) {
         if (val) {
           newErrors[key] = validateInput(key, val, updatedValues);
@@ -65,48 +66,48 @@ export default function UserForm({onDateChange}) {
       month &&
       year
     ) {
-      const ageCalculation = calculateAge(userInputDate); 
-      onDateChange(ageCalculation)
+      const ageCalculation = calculateAge(userInputDate);
+      onDateChange(ageCalculation);
     } else {
-      onDateChange(null)
+      onDateChange(null);
     }
   }
 
   return (
     <form onSubmit={handleFormSubmit}>
       <div className={styles.inputFields}>
-      <InputField
-        label="DAY"
-        text="day"
-        value={userInputDate.day}
-        placeholder="DD"
-        onChange={handleChange}
-        invalid={invalidInputDate}
-      />
-      <InputField
-        label="MONTH"
-        text="month"
-        value={userInputDate.month}
-        placeholder="MM"
-        onChange={handleChange}
-        invalid={invalidInputDate}
-      />
-     
-      <InputField
-        label="YEAR"
-        text="year"
-        value={userInputDate.year}
-        placeholder="YYYY"
-        onChange={handleChange}
-        invalid={invalidInputDate}
-      />
-       </div>
-       <div className={styles.separator}>
-        <hr/>
-       <button className={styles.button} type="submit">
-        <img className={styles.image} src={iconArr} alt="icon-arrow"/>
-      </button>
-       </div>
+        <InputField
+          label="DAY"
+          text="day"
+          value={userInputDate.day}
+          placeholder="DD"
+          onChange={handleChange}
+          invalid={invalidInputDate}
+        />
+        <InputField
+          label="MONTH"
+          text="month"
+          value={userInputDate.month}
+          placeholder="MM"
+          onChange={handleChange}
+          invalid={invalidInputDate}
+        />
+
+        <InputField
+          label="YEAR"
+          text="year"
+          value={userInputDate.year}
+          placeholder="YYYY"
+          onChange={handleChange}
+          invalid={invalidInputDate}
+        />
+      </div>
+      <div className={styles.separator}>
+        <hr />
+        <button className={styles.button} type="submit">
+          <img className={styles.image} src={iconArr} alt="icon-arrow" />
+        </button>
+      </div>
     </form>
   );
 }
